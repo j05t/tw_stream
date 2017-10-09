@@ -21,6 +21,12 @@ import oauth_info as auth # our local file with the OAuth infos
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
 
+import os
+try:
+    os.remove('out.csv')
+except Exception as e:
+    print(e)
+
 class TimelineMiner(object):
     def __init__(self, access_token, access_secret, consumer_key, consumer_secret, user_name):
         self.access_token = access_token

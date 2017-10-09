@@ -23,6 +23,7 @@ from wordcloud import WordCloud, STOPWORDS
 
 import os
 try:
+    os.remove('my_twitter_wordcloud_1.png')
     os.remove('out.csv')
 except Exception as e:
     print(e)

@@ -28,6 +28,7 @@ try:
 except Exception as e:
     print(e)
 
+
 class TimelineMiner(object):
     def __init__(self, access_token, access_secret, consumer_key, consumer_secret, user_name):
         self.access_token = access_token
@@ -46,6 +47,7 @@ class TimelineMiner(object):
         return bool(isinstance(self.auth, twitter.api.Twitter))
         
 
+    
     def get_timeline(self, max=0, keywords=[]):
         if keywords:
             self.df['keywords'] = ''
@@ -123,7 +125,6 @@ if __name__ == "__main__":
     parser.add_argument('-v', '--version', action='version', version='v. 1.0.1')
     
     args = parser.parse_args()
-
     
     tm = TimelineMiner(auth.ACCESS_TOKEN, 
                        auth.ACCESS_TOKEN_SECRET,  
@@ -149,7 +150,7 @@ if __name__ == "__main__":
     import pandas as pd
     df = pd.read_csv('out.csv')
 
-        # join tweets to a single string
+    # join tweets to a single string
     words = ' '.join(tm.df['tweet'])
 
     # remove URLs, RTs, and twitter handles
